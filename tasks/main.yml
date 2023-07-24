@@ -1,0 +1,12 @@
+  - name: Bootstrap Jenkins Slave
+    include_role:
+      name: my-first-ansible-role
+  - name: Instll wget
+    yum:
+      name: wget 
+      state: latest
+  - name: Install terraform
+    unarchive:
+      src: https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_linux_amd64.zip
+      dest: /usr/bin
+      remote_src: True
